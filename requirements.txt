@@ -1,0 +1,10 @@
+numpy
+cv2
+torch
+torchvision
+tqdm
+basicsr
+einops
+scikit-image
+ultralytics-thop
+Pillow
