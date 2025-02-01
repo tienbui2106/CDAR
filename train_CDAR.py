@@ -103,18 +103,6 @@ def save_checkpoint(model, optimizer, epoch, best_psnr, save_path):
         'best_psnr': best_psnr
     }, save_path)
 
-
-class CharbonnierLoss(nn.Module):
-    def __init__(self, eps=1e-6):
-        super(CharbonnierLoss, self).__init__()
-        self.eps = eps
-
-    def forward(self, x, y):
-        diff = x - y
-        loss = torch.sqrt(diff * diff + self.eps**2)
-        return loss.mean()
-
-
 def calculate_psnr(pred, target):
     mse = torch.mean((pred - target) ** 2)
     # Added small epsilon to prevent log(0)
